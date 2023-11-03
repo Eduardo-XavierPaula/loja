@@ -1,9 +1,10 @@
 import { MagnifyingGlassIcon, ShoppingCartIcon, UserIcon } from '@heroicons/react/24/solid'
+import Image from 'next/image'
 
 export default function Navbar(props: any) {
     return (
         <div className="navbar bg-primary">
-            <div className="flex px-6 w-full">
+            <div className="flex px-6 w-full max-w-[1500px] mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -21,7 +22,9 @@ export default function Navbar(props: any) {
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">Loja</a>
+                    <a className="btn btn-ghost normal-case text-xl p-0 w-16 h-16 border-none rounded-full">
+                        <Image src={"/Logo.png"} alt="Logo" width={350} height={350} className='rounded-full aspect-square'/>
+                    </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -43,9 +46,9 @@ export default function Navbar(props: any) {
                         <MagnifyingGlassIcon className="h-6 w-6 text-white"  />
                     </button>
                     <button className="btn btn-ghost btn-circle">
-                        <div className="indicator">
+                        <div className="indicator relative">
                             <ShoppingCartIcon className="h-6 w-6 text-white"  />
-                            <span className="badge badge-xs badge-primary indicator-item"></span>
+                            <span className="absolute -top-2 -right-1 bg-neutral text-primary rounded-full w-3 h-3 text-xs leading-3">1</span>
                         </div>
                     </button>
                     <a className="btn btn-ghost btn-circle">

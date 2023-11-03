@@ -1,12 +1,15 @@
+import Image from "next/image";
+
 export default function Card(props: any) {
     return (
-        <div className="group relative">
-            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                <img src={props.image} alt={props.title} className="h-full w-full object-cover object-center lg:h-full lg:w-full p-4" />
+        <div className="group relative hover:scale-[1.05] ease-in-out duration-75 cursor-pointer">
+            <div className="w-full relative overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 aspect-square">
+                <Image src={props.image} alt={props.title} fill className="object-cover aspect-square object-top"/>
+                {/* <img src={props.image} alt={props.title} className="h-full w-full  object-center lg:h-full lg:w-full" /> */}
             </div>
-            <div className="mt-4 flex justify-between">
-                <div>
-                    <h3 className="text-sm text-gray-700 w-2/3">
+            <div className="mt-4 flex gap-6">
+                <div className="mr-auto">
+                    <h3 className="text-sm text-gray-700">
                         <a href="#" className="line-clamp-1">
                             {props.title}
                         </a>

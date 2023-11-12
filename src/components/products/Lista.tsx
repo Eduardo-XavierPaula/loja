@@ -7,9 +7,9 @@ import 'swiper/css/navigation';
 
 export default function List(props: any) {
     return (
-        <div className="flex flex-col col-span-full mb-6">
+        <div className="flex flex-col col-span-full bg-secondary p-4 rounded-xl">
             <h3 className="text-primary font-bold text-lg capitalize">{props.titulo}</h3>
-            <div className="mt-6 gap-x-6 gap-y-10 xl:gap-x-8 ">
+            <div className="gap-x-6 gap-y-10 xl:gap-x-8">
 
                 {
                     props.products ? (
@@ -19,12 +19,11 @@ export default function List(props: any) {
                             rewind={true}
                             navigation={true}
                             modules={[Navigation]}
-                            className="mySwiper !py-4"
+                            className="mySwiper !p-4"
                         >
                             {props.products.map((product: any) => (
-                                <SwiperSlide>
+                                <SwiperSlide key={product.id}>
                                     <Card
-                                        key={product.id}
                                         image={product.image}
                                         title={product.title}
                                         price={product.price}

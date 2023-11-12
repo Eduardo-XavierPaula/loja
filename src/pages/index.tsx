@@ -2,6 +2,7 @@ import Card from "@/components/products/Card";
 import Layout from "../components/template/Layout";
 import List from "@/components/products/Lista";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 interface Product {
   id: number;
@@ -21,7 +22,6 @@ export default function Home() {
       const response = await fetch('https://fakestoreapi.com/products/categories');
       const categoriesData = await response.json();
       setCategories(categoriesData);
-      console.log(categories, categoriesData[0])
     } catch (error) {
       console.error("Erro ao buscar categorias:", error);
     } finally {
@@ -44,7 +44,6 @@ export default function Home() {
     const productsByCategory = await Promise.all(
       categories.map((category) => fetchProductsByCategory(category))
     );
-    console.log(categories, productsByCategory)
     setProducts(productsByCategory);
   };
 
@@ -62,6 +61,16 @@ export default function Home() {
 
   return (
     <Layout titulo="Teste" subtitulo="Página inicial">
+      <Head>
+        <title>
+          Portifolio
+        </title>
+        <meta
+          name="description"
+          content="Portifolio para simulação de uma loja utilizando ferramentas e conhecimentos como NEXT e API rest"
+          key="desc"
+        />
+      </Head>
       {isLoading ? (
         "Carregando..."
       ) : (

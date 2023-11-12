@@ -20,7 +20,7 @@ export default function Card(props: any) {
                         </div>
                     </div >
                 ) : (
-                    <div className="group relative hover:scale-[1.05] ease-in-out duration-75 cursor-pointer">
+                    <div className="group relative hover:scale-[1.05] ease-in-out duration-75 cursor-pointer bg-neutral p-4 rounded-xl">
                         <div className="w-full relative overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 aspect-square">
                             <Image src={props.image} alt={props.title} fill className="object-cover aspect-square object-top" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                             {/* <img src={props.image} alt={props.title} className="h-full w-full  object-center lg:h-full lg:w-full" /> */}

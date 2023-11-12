@@ -1,7 +1,7 @@
 import Card from "@/components/products/Card";
 import Layout from "../components/template/Layout";
 import List from "@/components/products/Lista";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Head from "next/head";
 
 interface Product {
@@ -29,7 +29,7 @@ export default function Home() {
     }
   }
 
-  const fetchProductsByCategory = async (category: string) => {
+  const fetchProductsByCategory = useCallback(async (category: string) => {
     try {
       const response = await fetch(`https://fakestoreapi.com/products/category/${category}`);
       const productsData = await response.json();
@@ -38,14 +38,14 @@ export default function Home() {
       console.error("Erro ao buscar produtos:", error);
       return [];
     }
-  }
+  }, []); // Certifique-se de incluir todas as dependências necessárias
 
-  const loadProducts = async () => {
+  const loadProducts = useCallback(async () => {
     const productsByCategory = await Promise.all(
       categories.map((category) => fetchProductsByCategory(category))
     );
     setProducts(productsByCategory);
-  };
+  }, [categories, fetchProductsByCategory]);
 
 
 
@@ -57,7 +57,7 @@ export default function Home() {
     if (!isLoading) {
       loadProducts();
     }
-  }, [categories, isLoading]);
+  }, [categories, isLoading, loadProducts]);
 
   return (
     <Layout titulo="Teste" subtitulo="Página inicial">

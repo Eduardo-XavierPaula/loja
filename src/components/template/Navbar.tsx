@@ -40,17 +40,18 @@ export default function Navbar(props: any) {
                             <button className="cursor-pointer flex rounded-full hover:bg-accent text-sm text-white">
                                 <div className="indicator relative">
                                     <ShoppingCartIcon className="h-8 w-8 rounded-full text-white p-1" />
-                                    <span className="absolute -top-2 -right-1 bg-neutral text-primary rounded-full w-3 h-3 text-xs leading-3">1</span>
+                                    <span className="absolute -top-2 -right-1 bg-white text-primary rounded-full w-3 h-3 text-xs leading-3">1</span>
                                 </div>
                             </button>
                             <Dropdown
-                                summary={<UserIcon className="h-8 w-8 rounded-full text-white p-1" />}
+                                label={<UserIcon className="h-8 w-8 rounded-full text-white p-1" />}
                                 items={[
                                     <a href="#" key={1} className="block px-4 py-2 text-sm" role="menuitem" id="user-menu-item-0">Perfil</a>,
                                     <a href="#" key={2} className="block px-4 py-2 text-sm" role="menuitem" id="user-menu-item-1">Configurações</a>,
                                     <a href="#" key={3} className="block px-4 py-2 text-sm" role="menuitem" id="user-menu-item-2">Sair</a>,
                                 ]}
-                                classSummary='rounded-full hover:bg-accent text-sm text-white'
+                                type='hover'
+                                classLabel='rounded-full hover:bg-accent text-sm text-white'
                             />
                         </div>
                     </div>

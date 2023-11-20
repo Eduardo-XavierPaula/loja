@@ -8,9 +8,14 @@ import 'swiper/css/navigation';
 export default function List(props: any) {
     return (
         <div className="flex flex-col col-span-full bg-secondary p-4 rounded-xl">
-            <h3 className="text-primary font-bold text-lg capitalize">{props.titulo}</h3>
+            {
+                props.products ? (
+                    <h3 className="text-primary font-bold text-lg capitalize">{props.titulo}</h3>
+                    ) : (
+                    <h3 className="w-40 h-7 bg-white rounded-xl animate-pulse"></h3>
+                )
+            }
             <div className="gap-x-6 gap-y-10 xl:gap-x-8">
-
                 {
                     props.products ? (
                         <Swiper
@@ -33,14 +38,13 @@ export default function List(props: any) {
                             ))}
                         </Swiper>
                     ) : (
-                        <div className="flex gap-4">
+                        <div className="flex gap-4 p-4">
                             <Card noData="true"/>
                             <Card noData="true"/>
                             <Card noData="true"/>
                             <Card noData="true"/>
                         </div>
                     )
-
                 }
             </div>
         </div>

@@ -72,7 +72,12 @@ export default function Home() {
         />
       </Head>
       {isLoading ? (
-        "Carregando..."
+        <>
+        <List key={0} isLoading={isLoading} />
+        <List key={1} isLoading={isLoading} />
+        <List key={2} isLoading={isLoading} />
+        <List key={3} isLoading={isLoading} />
+      </>
       ) : (
         <>
           <List key={0} titulo={categories[0]} products={products[0]} isLoading={isLoading} />

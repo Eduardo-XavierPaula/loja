@@ -19,7 +19,7 @@ export default function Layout(props: LayoutProps) {
                 </div>
             </div>
             <Navbar />
-            <div className="flex bg-neutral">
+            <div className="flex bg-white">
                 <div className="flex flex-col w-full">
                     <Section>
                         {props.children}
